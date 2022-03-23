@@ -67,7 +67,7 @@ void getPlayFunction(std::list<Action> actionList, char command)
 void quit(bool& stop)
 {
     char answer;
-    std::cout << "You really want to quit ? (O/n)\n";
+    std::cout << "Do you really want to quit ? (O/n)\n";
     std::cin >> answer;
     if (answer == 'O' || answer == 'o') {
         std::cout << "bye\n";
