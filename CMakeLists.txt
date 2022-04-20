@@ -23,4 +23,5 @@ target_include_directories(${PROJECT_NAME} PRIVATE src)
 
 # ---Add p6---
 add_subdirectory(p6)
-target_link_libraries(${PROJECT_NAME} p6::p6)
+target_link_p6_library(${PROJECT_NAME})
+p6_copy_folder(${PROJECT_NAME} img)

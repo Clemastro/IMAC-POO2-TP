@@ -1,6 +1,7 @@
-#include "menu/menu.hpp"
+#include <iostream>
+#include "games/Morpion/morpion.hpp"
 
 int main()
 {
-    menu();
+    morpion();
 }
