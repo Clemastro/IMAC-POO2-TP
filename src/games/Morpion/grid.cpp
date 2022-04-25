@@ -26,7 +26,7 @@ void Grid::activate_cells(p6::Context& ctx, Value shape)
     }
 }
 
-void Grid::save_value(p6::Context& ctx, Value shape)
+void Grid::save_value(p6::Context& ctx, Value& shape)
 {
     for (auto& cell : cells) {
         cell.save_value(ctx, shape);

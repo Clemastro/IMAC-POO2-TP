@@ -20,12 +20,14 @@ void morpion()
         Grid grid(3);
         grid.draw_grid(ctx);
 
+        Value player = Value::cross;
+
         ctx.update = [&]() {
-            grid.activate_cells(ctx, Value::cross);
+            grid.activate_cells(ctx, player);
         };
 
         ctx.mouse_pressed = [&](p6::MouseButton) {
-            grid.save_value(ctx, Value::cross);
+            grid.save_value(ctx, player);
         };
 
         // Start the program

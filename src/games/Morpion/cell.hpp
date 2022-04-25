@@ -28,7 +28,7 @@ public:
     void draw_a_cell(p6::Context& ctx);
     void activate_cell(p6::Context& ctx, Value shape);
     void draw_shape(p6::Context& ctx, Value shape);
-    void save_value(p6::Context& ctx, Value shape);
+    void save_value(p6::Context& ctx, Value& shape);
 
     bool mouse_on_cell(p6::Context& ctx);
 

@@ -7,6 +7,7 @@
 #include <iostream>
 
 //intern include
+#include "player.hpp"
 #include "shapes.hpp"
 
 Cell::Cell(float _xposition, float _yposition, float _radius)
@@ -32,6 +33,9 @@ void Cell::activate_cell(p6::Context& ctx, Value shape)
 {
     if (mouse_on_cell(ctx)) {
         color = p6::Color(0.8f, 0.8f, 0.8f);
+        if (value != Value::empty) {
+            color = p6::Color(0.8f, 0.3f, 0.3f);
+        }
         draw_a_cell(ctx);
         draw_shape(ctx, shape);
     }
@@ -57,10 +61,11 @@ void Cell::draw_shape(p6::Context& ctx, Value shape)
     }
 }
 
-void Cell::save_value(p6::Context& ctx, Value shape)
+void Cell::save_value(p6::Context& ctx, Value& shape)
 {
-    if (mouse_on_cell(ctx)) {
+    if (mouse_on_cell(ctx) && value == Value::empty) {
         value = shape;
+        change_player(shape);
     }
 }
 
