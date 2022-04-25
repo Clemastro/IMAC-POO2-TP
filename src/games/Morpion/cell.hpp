@@ -10,6 +10,7 @@ private:
     float     yposition;
     float     radius;
     p6::Color color;
+    bool      mouse_over;
 
 public:
     //--constructors
@@ -18,6 +19,9 @@ public:
 
     //--methods
     void draw_a_cell(p6::Context& ctx);
+    void activate_cell(p6::Context& ctx);
+
+    bool mouse_on_cell(p6::Context& ctx);
 
     //--getters/setters
     inline float get_xposition() const

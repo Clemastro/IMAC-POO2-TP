@@ -15,7 +15,13 @@ Grid::Grid(int _nb_case)
 void Grid::draw_grid(p6::Context& ctx)
 {
     for (auto& cell : cells) {
-        ctx.fill = cell.get_color();
         cell.draw_a_cell(ctx);
+    }
+}
+
+void Grid::activate_cells(p6::Context& ctx)
+{
+    for (auto& cell : cells) {
+        cell.activate_cell(ctx);
     }
 }

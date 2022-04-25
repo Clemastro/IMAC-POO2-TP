@@ -23,4 +23,16 @@ public:
 
     //--methode
     void draw_grid(p6::Context& ctx);
+    void activate_cells(p6::Context& ctx);
+
+    //--getters/setters
+    inline std::vector<Cell> get_Cells() const
+    {
+        return cells;
+    }
+
+    inline Cell get_Cell(int nb_of_the_cell) const
+    {
+        return cells[nb_of_the_cell];
+    }
 };

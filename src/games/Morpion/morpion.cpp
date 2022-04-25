@@ -6,7 +6,6 @@
 
 //intern include
 #include "grid.hpp"
-#include "window.hpp"
 
 void morpion()
 {
@@ -16,9 +15,16 @@ void morpion()
         //create a white background
         ctx.background({0.0f, 0.0f, 0.0f});
 
+        Grid grid(3);
         //draw the grid
-        Grid grid(5);
         grid.draw_grid(ctx);
+
+        ctx.update = [&]() {
+            //std::cout << "x : " << ctx.mouse().x << " | y : " << ctx.mouse().y << std::endl;
+            //std::cout << "Cell over : " << grid.get_Cell(0).mouse_on_cell(ctx) << std::endl;
+            //grid.get_Cell(0).activate_cell(ctx);
+            grid.activate_cells(ctx);
+        };
 
         // Start the program
         ctx.start();
