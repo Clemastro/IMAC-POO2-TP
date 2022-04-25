@@ -5,6 +5,7 @@
 #include <iostream>
 
 //intern include
+#include "grid.hpp"
 #include "window.hpp"
 
 void morpion()
@@ -13,9 +14,11 @@ void morpion()
         // Create some objects
         p6::Context ctx = p6::Context{{800, 800, "Morpion"}};
         //create a white background
-        ctx.background({0.5f, 0.5f, 0.5f});
+        ctx.background({0.0f, 0.0f, 0.0f});
 
-        create_grid(ctx, 5);
+        //draw the grid
+        Grid grid(5);
+        grid.draw_grid(ctx);
 
         // Start the program
         ctx.start();
