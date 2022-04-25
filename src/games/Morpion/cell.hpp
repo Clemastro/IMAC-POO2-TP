@@ -2,6 +2,12 @@
 
 #include <p6/p6.h>
 
+enum class Value {
+    empty,
+    cross,
+    nought,
+};
+
 //This class define a cell on the grid
 class Cell {
 private:
@@ -11,6 +17,7 @@ private:
     float     radius;
     p6::Color color;
     bool      mouse_over;
+    Value     value;
 
 public:
     //--constructors
@@ -19,7 +26,9 @@ public:
 
     //--methods
     void draw_a_cell(p6::Context& ctx);
-    void activate_cell(p6::Context& ctx);
+    void activate_cell(p6::Context& ctx, Value shape);
+    void draw_shape(p6::Context& ctx, Value shape);
+    void save_value(p6::Context& ctx, Value shape);
 
     bool mouse_on_cell(p6::Context& ctx);
 
@@ -42,6 +51,11 @@ public:
     inline p6::Color get_color() const
     {
         return color;
+    }
+
+    inline Value get_value() const
+    {
+        return value;
     }
 
     inline void set_color(p6::Color _color)

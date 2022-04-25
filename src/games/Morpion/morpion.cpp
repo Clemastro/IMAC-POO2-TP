@@ -5,25 +5,27 @@
 #include <iostream>
 
 //intern include
+#include "cell.hpp"
 #include "grid.hpp"
 
 void morpion()
 {
     try {
-        // Create some objects
+        // Create the canvas
         p6::Context ctx = p6::Context{{800, 800, "Morpion"}};
         //create a white background
-        ctx.background({0.0f, 0.0f, 0.0f});
+        ctx.background({1.0f, 1.0f, 1.0f});
 
-        Grid grid(3);
         //draw the grid
+        Grid grid(3);
         grid.draw_grid(ctx);
 
         ctx.update = [&]() {
-            //std::cout << "x : " << ctx.mouse().x << " | y : " << ctx.mouse().y << std::endl;
-            //std::cout << "Cell over : " << grid.get_Cell(0).mouse_on_cell(ctx) << std::endl;
-            //grid.get_Cell(0).activate_cell(ctx);
-            grid.activate_cells(ctx);
+            grid.activate_cells(ctx, Value::cross);
+        };
+
+        ctx.mouse_pressed = [&](p6::MouseButton) {
+            grid.save_value(ctx, Value::cross);
         };
 
         // Start the program

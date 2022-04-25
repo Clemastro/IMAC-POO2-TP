@@ -23,7 +23,8 @@ public:
 
     //--methode
     void draw_grid(p6::Context& ctx);
-    void activate_cells(p6::Context& ctx);
+    void activate_cells(p6::Context& ctx, Value shape);
+    void save_value(p6::Context& ctx, Value shape);
 
     //--getters/setters
     inline std::vector<Cell> get_Cells() const
