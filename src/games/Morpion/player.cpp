@@ -77,7 +77,20 @@ bool player_have_win(Grid& grid, Value& player)
             break;
         }
     }
+    if (ans == true) {
+        switch (player) {
+        case Value::cross:
+            std::cout << "Crosses WIN !!\n";
+            break;
 
+        case Value::nought:
+            std::cout << "Noughts WIN !!\n";
+            break;
+
+        default:
+            break;
+        }
+    }
     return ans;
 }
 

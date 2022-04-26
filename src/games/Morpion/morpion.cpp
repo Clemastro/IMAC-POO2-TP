@@ -21,16 +21,20 @@ void morpion()
         Grid grid(3);
         grid.draw_grid(ctx);
 
+        //create initial player
         Value player = Value::cross;
 
+        //active cell
         ctx.update = [&]() {
             grid.activate_cells(ctx, player);
         };
 
+        //event
         ctx.mouse_pressed = [&](p6::MouseButton) {
             if (grid.save_value(ctx, player)) {
                 if (player_have_win(grid, player) || grid_full(grid)) {
-                    std::cout << "End of the Game" << std::endl;
+                    std::cout << "Game over" << std::endl;
+                    ctx.pause();
                 }
                 else {
                     change_player(player);

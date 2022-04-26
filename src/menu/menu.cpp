@@ -8,6 +8,7 @@
 //intern include
 #include "../games/Guess_the_number/game-functions.hpp"
 #include "../games/Hangman/Hangman.hpp"
+#include "../games/Morpion/morpion.hpp"
 #include "../generalFunctions/playerFunctions.hpp"
 #include "Game.hpp"
 
@@ -16,7 +17,8 @@ void menu()
     //liste de commandes/fonctions
     std::list<Game> gamesList{
         Game("play Guess_the_Number", '1', play_guess_the_number),
-        Game("play Hangman", '2', play_hangman)};
+        Game("play Hangman", '2', play_hangman),
+        Game("play Crosses and Noughts", '3', morpion)};
 
     std::cout << "\nWhat do you want to play ?\n\n";
     showFunctions(gamesList);
