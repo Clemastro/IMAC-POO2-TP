@@ -9,6 +9,12 @@
 //intern include
 #include "cell.hpp"
 
+enum class Direction {
+    Row,
+    Collumn,
+    Diagonal,
+};
+
 //This class define the grid of the game
 class Grid {
 private:
@@ -24,7 +30,7 @@ public:
     //--methode
     void draw_grid(p6::Context& ctx);
     void activate_cells(p6::Context& ctx, Value shape);
-    void save_value(p6::Context& ctx, Value& shape);
+    bool save_value(p6::Context& ctx, Value& shape);
 
     //--getters/setters
     inline std::vector<Cell> get_Cells() const

@@ -61,12 +61,13 @@ void Cell::draw_shape(p6::Context& ctx, Value shape)
     }
 }
 
-void Cell::save_value(p6::Context& ctx, Value& shape)
+bool Cell::save_value(p6::Context& ctx, Value& shape)
 {
     if (mouse_on_cell(ctx) && value == Value::empty) {
         value = shape;
-        change_player(shape);
+        return true;
     }
+    return false;
 }
 
 bool Cell::mouse_on_cell(p6::Context& ctx)

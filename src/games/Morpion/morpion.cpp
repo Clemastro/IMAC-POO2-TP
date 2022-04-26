@@ -7,6 +7,7 @@
 //intern include
 #include "cell.hpp"
 #include "grid.hpp"
+#include "player.hpp"
 
 void morpion()
 {
@@ -27,7 +28,14 @@ void morpion()
         };
 
         ctx.mouse_pressed = [&](p6::MouseButton) {
-            grid.save_value(ctx, player);
+            if (grid.save_value(ctx, player)) {
+                if (player_have_win(grid, player) || grid_full(grid)) {
+                    std::cout << "End of the Game" << std::endl;
+                }
+                else {
+                    change_player(player);
+                }
+            }
         };
 
         // Start the program

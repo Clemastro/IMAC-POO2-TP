@@ -1,4 +1,5 @@
 #include "grid.hpp"
+#include <iostream>
 
 Grid::Grid(int _nb_case)
     : nb_case(_nb_case)
@@ -26,9 +27,13 @@ void Grid::activate_cells(p6::Context& ctx, Value shape)
     }
 }
 
-void Grid::save_value(p6::Context& ctx, Value& shape)
+bool Grid::save_value(p6::Context& ctx, Value& shape)
 {
+    bool saved = false;
     for (auto& cell : cells) {
-        cell.save_value(ctx, shape);
+        if (cell.save_value(ctx, shape)) {
+            saved = true;
+        }
     }
+    return saved;
 }
