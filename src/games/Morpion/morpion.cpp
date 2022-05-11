@@ -33,7 +33,7 @@ void morpion()
         ctx.mouse_pressed = [&](p6::MouseButton) {
             if (grid.save_value(ctx, player)) {
                 if (player_have_win(grid, player) || grid_full(grid)) {
-                    std::cout << "Game over" << std::endl;
+                    std::cout << "Game finished, close the window to return at the menu" << std::endl;
                     ctx.pause();
                 }
                 else {
